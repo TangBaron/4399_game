@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4399 小游戏 - 我的游戏平台</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#/" class="logo">
+        <span class="logo-4399">4399</span>
+        <span class="logo-sub">小游戏</span>
+      </a>
+      <nav class="nav-cats" id="nav-cats">
+        <a href="#/" class="nav-item active" data-cat="all">全部</a>
+        <a href="#/" class="nav-item" data-cat="敏捷">敏捷</a>
+        <a href="#/" class="nav-item" data-cat="赛车">赛车</a>
+        <a href="#/" class="nav-item" data-cat="休闲">休闲</a>
+        <a href="#/" class="nav-item" data-cat="动作">动作</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="搜索游戏..." autocomplete="off" />
+        <button id="search-btn" aria-label="搜索">🔍</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main id="app">
+    <!-- 首页视图 -->
+    <section id="view-home" class="view">
+      <!-- 轮播 Banner -->
+      <div class="banner" id="banner">
+        <div class="banner-slides" id="banner-slides"></div>
+        <button class="banner-arrow prev" id="banner-prev">‹</button>
+        <button class="banner-arrow next" id="banner-next">›</button>
+        <div class="banner-dots" id="banner-dots"></div>
+      </div>
+
+      <!-- 侧边栏 + 游戏列表 -->
+      <div class="content-wrap">
+        <aside class="sidebar">
+          <h3 class="side-title">游戏分类</h3>
+          <ul class="side-cats" id="side-cats">
+            <li class="active" data-cat="all">全部游戏</li>
+            <li data-cat="敏捷">敏捷类</li>
+            <li data-cat="赛车">赛车类</li>
+            <li data-cat="休闲">休闲类</li>
+            <li data-cat="动作">动作类</li>
+            <li data-cat="双人">双人对战</li>
+          </ul>
+          <h3 class="side-title mt">热门排行</h3>
+          <ol class="rank-list" id="rank-list"></ol>
+        </aside>
+
+        <div class="game-area">
+          <div class="section-head">
+            <h2 id="section-title">全部游戏</h2>
+            <span class="game-count" id="game-count"></span>
+          </div>
+          <div class="game-grid" id="game-grid"></div>
+          <div class="empty-tip hidden" id="empty-tip">没有找到相关游戏 😢</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 游戏游玩视图 -->
+    <section id="view-play" class="view hidden">
+      <div class="play-bar">
+        <button class="btn-back" id="btn-back">← 返回游戏大厅</button>
+        <h1 class="play-title" id="play-title"></h1>
+        <div class="play-actions">
+          <button class="btn-icon" id="btn-fullscreen" title="全屏游玩">⛶ 全屏</button>
+          <button class="btn-icon" id="btn-refresh" title="重新加载">↻ 重玩</button>
+        </div>
+      </div>
+      <div class="play-meta" id="play-meta"></div>
+      <div class="player-wrap" id="player-wrap">
+        <iframe id="game-frame" title="game" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <div class="player-tip" id="player-tip">游戏加载中，请稍候...</div>
+      </div>
+      <div class="play-desc" id="play-desc"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>我的 4399 小游戏平台 · 仅供学习交流使用 · 点击游戏卡片即可开始游玩</p>
+  </footer>
+
+  <script src="js/games.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

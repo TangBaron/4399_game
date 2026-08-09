@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>城市狂飙 · 3D 赛车躲避</title>
+  <link rel="stylesheet" href="css/style.css?v=7" />
+  <!-- Three.js via ES Module import map (CDN, no build step required) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- 3D 画布挂载点 -->
+  <div id="game-container"></div>
+
+  <!-- 实时 HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-item">
+      <span class="hud-label">得分</span>
+      <span id="score" class="hud-value">0</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">速度</span>
+      <span id="speed" class="hud-value">0</span>
+      <span class="hud-unit">km/h</span>
+    </div>
+    <div class="hud-item">
+      <span class="hud-label">城市</span>
+      <span id="city-label" class="hud-value">--</span>
+    </div>
+  </div>
+
+  <!-- 城市输入弹层 -->
+  <div id="city-modal" class="overlay">
+    <div class="panel">
+      <h1 class="title">城市狂飙</h1>
+      <p class="subtitle">3D 城市赛车躲避游戏</p>
+      <label class="field-label" for="city-input">输入你想穿越的城市</label>
+      <input id="city-input" type="text" placeholder="例如：北京 / 上海 / 纽约 / Tokyo" maxlength="20" autocomplete="off" />
+      <p class="hint">将尝试加载该城市的全景图；若失败则使用程序化城市。</p>
+      <button id="city-confirm" class="btn btn-primary">进入城市</button>
+    </div>
+  </div>
+
+  <!-- 准备开始 -->
+  <div id="start-modal" class="overlay hidden">
+    <div class="panel">
+      <h2 id="start-city" class="title">即将进入：--</h2>
+      <p class="subtitle">使用 ← / → 方向键切换车道，躲避来车</p>
+      <p class="hint">每躲避一辆车 +1 分，速度会逐渐加快</p>
+      <button id="start-btn" class="btn btn-primary">开始游戏（按任意键）</button>
+    </div>
+  </div>
+
+  <!-- 游戏结束 -->
+  <div id="gameover-modal" class="overlay hidden">
+    <div class="panel">
+      <h2 class="title">砰！撞车了</h2>
+      <div class="result-row">
+        <span class="hud-label">最终得分</span>
+        <span id="final-score" class="final-score">0</span>
+      </div>
+      <div class="result-row">
+        <span class="hud-label">生存时间</span>
+        <span id="final-time" class="final-score">0s</span>
+      </div>
+      <button id="restart-btn" class="btn btn-primary">重新开始</button>
+    </div>
+  </div>
+
+  <!-- 加载提示 -->
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <p id="loading-text">正在加载城市全景...</p>
+  </div>
+
+  <script type="module" src="js/main.js?v=7"></script>
+</body>
+</html>

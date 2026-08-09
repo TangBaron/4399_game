@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird - 经典复刻 & 双人对战</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 主菜单 -->
+        <div id="menu" class="screen active">
+            <h1 class="title">Flappy Bird</h1>
+            <p class="subtitle">经典复刻 · 双人对战扩展</p>
+            <div class="menu-buttons">
+                <button id="btn-single" class="menu-btn primary">单人模式</button>
+                <button id="btn-dual" class="menu-btn secondary">双人模式</button>
+            </div>
+            <div class="controls-info">
+                <p><strong>单人模式：</strong> ↑ / 空格 控制小鸟上升</p>
+                <p><strong>双人模式：</strong> 玩家一 W 键 &nbsp;|&nbsp; 玩家二 ↑ 键</p>
+            </div>
+        </div>
+
+        <!-- 游戏画面 -->
+        <div id="game-screen" class="screen">
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+            <button id="btn-back" class="back-btn">返回菜单</button>
+
+            <!-- 游戏结束遮罩 -->
+            <div id="game-over" class="overlay hidden">
+                <div class="overlay-panel">
+                    <h2 id="over-title">游戏结束</h2>
+                    <div id="over-scores" class="over-scores"></div>
+                    <p id="over-winner" class="winner"></p>
+                    <button id="btn-restart" class="menu-btn primary">重新开始</button>
+                    <button id="btn-menu" class="menu-btn secondary">返回菜单</button>
+                </div>
+            </div>
+
+            <!-- 待开始提示 -->
+            <div id="ready-tip" class="ready-tip">
+                <p id="ready-text">按 ↑ 或 空格 开始</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bird.js"></script>
+    <script src="js/pipe.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
